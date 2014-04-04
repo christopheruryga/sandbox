@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Loading</title>
+<link rel="stylesheet" type="text/css" href="normalize.css">
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+
+function loadit(){
+	$("#content").hide();
+	$(".loading").fadeIn(200);
+	$('#content').empty().load("sample.html", function(){
+	$(".loading").fadeOut(100);
+		setTimeout(function(){$('#content').fadeIn(1000);}, 200);
+	});	
+}
+
+function countdown(){
+	var x = $("#counter").html();
+	x--;
+	if(x<0){x=4;}
+	$("#counter").html(x);
+}
+
+$( document ).ready(function() {
+	$("a").click(function(e){
+		e.preventDefault();
+		$("#content").hide();
+		$(".loading").fadeIn(200);
+		$('#content').empty().load("sample.html", function(){
+			$(".loading").fadeOut(100);
+			setTimeout(function(){$('#content').fadeIn(1000);}, 200);
+		});
+	});
+	
+	$("#counter").html(5);
+	
+	setInterval(countdown, 1000);
+	setInterval(loadit, 5000);
+});
+
+</script>
+</head>
+
+<body>
+<div id="counter" style="width:20px height:21px font-size:14px; line-height:21px; text-align:center; position:absolute; top:50%; left:50%; margin:160px 0 0 -10px;"></div>
+<div id="frame" style="width:520px; height:320px; position:absolute; top:50%; left:50%; margin:-200px 0 0 -300px; padding:40px; border:solid 1px black;">
+	<div id="content" style="width:100%; height:100%;"></div>
+</div>
+<a style="display:block; width:100px; height: 16px; margin:20px auto; position:absolute; top:50%; left:50%; margin:240px 0 0 -70px; padding:20px; background:black; color:white;" href="#">Load Content</a>
+<div class="loading" style="display:none; background:url('img/loading.gif') no-repeat center center; width:50px; height:50px; position:absolute; top:50%; left:50%; margin: -25px 0 0 -25px; z-index:1000"></div>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Skroller Sandbox</title>
+<link rel="stylesheet" type="text/css" href="normalize.css">
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="js/skrollr.min.js"></script> 
+
+<script type="text/javascript">
+$( document ).ready(function() {
+	var s = skrollr.init();
+});
+</script>
+
+<style>
+.top{
+	width:100%;
+	height:400px;
+	background:white;	
+}
+
+.mid{
+	width:100%;
+	height:200px;
+	background:url('img/slide4.jpg');
+}
+
+.bottom{
+	width:100%;
+	height:400px;
+	background:white;
+}
+
+h3{
+	display:block;
+	padding:20px;
+	background:#000;
+	color:#fff;
+	margin:0 auto;
+	text-align:center;	
+}
+</style>
+</head>
+
+<body>
+<div class="top"></div>
+<div class="mid"
+	data-top="background-position: 50% 0px;"
+    data-top-bottom="background-position: 50% -200px;"
+    data-anchor-target=".top"
+></div>
+<div class="bottom">
+	<h3 class="daeva"
+    	data--200-bottom="opacity: 0"                   
+        data-center="opacity: 1"
+        data-anchor-target=".daeva"
+    
+    >Daeva</h3>
+</div>
+</body>
+</html>
